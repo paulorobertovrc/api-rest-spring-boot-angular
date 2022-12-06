@@ -20,7 +20,7 @@ public class Product {
     private int id;
 
     @Column(nullable = false)
-    private String produto;
+    private String nome;
     
     @Column(nullable = false)
     private String marca;
