@@ -8,13 +8,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tbProdutos")
+@Table(name = "tbProdutos", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Product {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -36,4 +36,17 @@ public class Product {
     
     @Column(nullable = true)
     private int estoque;
+
+    public Product() {
+    }
+    
+    public Product(ProductDto productData) {
+        this.id = productData.id();
+        this.nome = productData.nome();
+        this.marca = productData.marca();
+        this.modelo = productData.modelo();
+        this.categoria = productData.categoria();
+        this.preco = productData.preco();
+        this.estoque = productData.estoque();
+    }
 }
