@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tbProdutos")
 public class Product {
-    @Id
     @Column(length = 5)
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Auto increment
-    private int id;
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
@@ -42,7 +42,6 @@ public class Product {
     private int estoque;
     
     public Product(ProductDto productData) {
-        this.id = productData.id();
         this.nome = productData.nome();
         this.marca = productData.marca();
         this.modelo = productData.modelo();
