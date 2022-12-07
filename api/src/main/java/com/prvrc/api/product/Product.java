@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,28 +16,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tbProdutos", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tbProdutos")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(length = 5)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Auto increment
     private int id;
 
     @Column(nullable = false)
     private String nome;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String marca;
     
-    @Column(nullable = true)
+    @Column(nullable = true, length = 50)
     private String modelo;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String categoria;
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 6)
     private BigDecimal preco;
     
-    @Column(nullable = true)
+    @Column(nullable = true, length = 3)
     private int estoque;
     
     public Product(ProductDto productData) {
