@@ -8,12 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prvrc.api.product.Product;
 import com.prvrc.api.product.ProductDto;
+import com.prvrc.api.product.ProductDtoUpdate;
 import com.prvrc.api.product.ProductRepository;
 
 import jakarta.validation.Valid;
@@ -41,5 +43,12 @@ public class ProductController {
     @GetMapping("/{id}")
     public Optional<ProductDto> findById(@PathVariable("id") Long id) {
         return productRepository.findById(id).stream().map(ProductDto::new).findFirst();
+    }
+
+    @PutMapping
+    @Transactional
+    public void update(@RequestBody @Valid ProductDtoUpdate newProductData) {
+        Product p = productRepository.getReferenceById(newProductData.id());
+        p.update(newProductData);
     }
 }
