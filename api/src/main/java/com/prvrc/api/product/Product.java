@@ -49,4 +49,14 @@ public class Product {
         this.preco = productData.preco();
         this.estoque = productData.estoque();
     }
+
+    public void update(ProductDtoUpdate newProductData) {
+        if (newProductData.preco() != null) {
+            this.preco = newProductData.preco();
+        }
+
+        if (newProductData.estoque() != 0) {
+            this.estoque = newProductData.estoque();
+        }
+    }
 }
