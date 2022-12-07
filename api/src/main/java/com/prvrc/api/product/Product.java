@@ -9,9 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tbProdutos", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Product {
@@ -36,9 +40,6 @@ public class Product {
     
     @Column(nullable = true)
     private int estoque;
-
-    public Product() {
-    }
     
     public Product(ProductDto productData) {
         this.id = productData.id();
