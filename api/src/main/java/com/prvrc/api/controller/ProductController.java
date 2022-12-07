@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,5 +51,11 @@ public class ProductController {
     public void update(@RequestBody @Valid ProductDtoUpdate newProductData) {
         Product p = productRepository.getReferenceById(newProductData.id());
         p.update(newProductData);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable("id") Long id) {
+        productRepository.deleteById(id);
     }
 }
