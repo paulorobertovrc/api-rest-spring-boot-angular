@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 
 import { Product } from '../model/product';
 import { ProductsService } from '../services/products.service';
@@ -15,6 +15,12 @@ export class ProductsComponent {
   displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price'];
 
   constructor(private productsService: ProductsService) {
-    this.products = this.productsService.findAll();
+    this.products = this.productsService.findAll()
+                  .pipe(
+                    catchError(err => {
+                      alert('Unable to connect to the server');
+                      return of([])
+                    })
+                  );
   }
 }
