@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Product } from '../model/product';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +11,10 @@ import { Product } from '../model/product';
 })
 export class ProductsComponent {
 
-  products: Product[] = [
-  ];
+  products: Observable<Product[]>;
   displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price'];
+
+  constructor(private productsService: ProductsService) {
+    this.products = this.productsService.findAll();
+  }
 }
