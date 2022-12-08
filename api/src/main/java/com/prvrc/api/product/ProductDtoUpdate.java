@@ -10,5 +10,4 @@ public record ProductDtoUpdate(
             @NotNull Long id, 
             @DecimalMin(value = "0.0") @Digits(integer = 6, fraction = 2) BigDecimal preco, 
             int estoque) {
-
 }
