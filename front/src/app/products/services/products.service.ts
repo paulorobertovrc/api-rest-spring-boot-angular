@@ -9,11 +9,11 @@ import { Product } from '../model/product';
 })
 export class ProductsService {
 
+  private readonly url = 'api/product';
+
   constructor(private httpClient: HttpClient) { }
 
-  findAll(): Product[] {
-    return [
-      {_id: 1, category: 'Telefonia', inventory: 5, brand: 'Apple', model: '128 GB', name: 'iPhone 14', price: Big(999)}
-    ]
+  findAll() {
+    return this.httpClient.get<Product[]>(this.url);
   }
 }
