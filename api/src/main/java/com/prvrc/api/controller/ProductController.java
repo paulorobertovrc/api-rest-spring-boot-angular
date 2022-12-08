@@ -27,7 +27,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ProductController {
 
-    @Autowired
     private final ProductRepository productRepository;
 
     @PostMapping
