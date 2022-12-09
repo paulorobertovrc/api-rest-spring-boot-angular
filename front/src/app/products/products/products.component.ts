@@ -12,7 +12,7 @@ import { ProductsService } from '../services/products.service';
 export class ProductsComponent {
 
   products: Observable<Product[]>;
-  displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price'];
+  displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price', 'actions'];
 
   constructor(private productsService: ProductsService) {
     this.products = this.productsService.findAll()
