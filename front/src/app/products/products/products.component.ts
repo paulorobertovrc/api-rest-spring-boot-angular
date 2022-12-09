@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, Observable, of } from 'rxjs';
 
 import { Product } from '../model/product';
 import { ProductsService } from '../services/products.service';
@@ -14,7 +15,7 @@ export class ProductsComponent {
   products: Observable<Product[]>;
   displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price', 'actions'];
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService, private router: Router, private activeRoute: ActivatedRoute) {
     this.products = this.productsService.findAll()
                   .pipe(
                     catchError(err => {
@@ -22,5 +23,9 @@ export class ProductsComponent {
                       return of([])
                     })
                   );
+  }
+
+  onAdd() {
+    this.router.navigate(['new'], {relativeTo: this.activeRoute});
   }
 }

@@ -39,7 +39,7 @@
 
   <ng-container matColumnDef="actions">
     <mat-header-cell class="button-new-product" *matHeaderCellDef>
-        <button mat-stroked-button color="primary" aria-label="Adicionar novo produto"> NOVO PRODUTO </button>
+        <button mat-stroked-button color="primary" aria-label="Adicionar novo produto" (click)="onAdd()"> NOVO PRODUTO </button>
     </mat-header-cell>
 
     <mat-cell class="button-edit-delete" *matCellDef="let product">
