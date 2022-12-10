@@ -24,39 +24,39 @@ public class Product {
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
     
     @Column(nullable = false, length = 50)
-    private String marca;
+    private String brand;
     
     @Column(nullable = true, length = 50)
-    private String modelo;
+    private String model;
     
     @Column(nullable = false, length = 50)
-    private String categoria;
+    private String category;
     
     @Column(nullable = false, length = 6)
-    private BigDecimal preco;
+    private BigDecimal price;
     
     @Column(nullable = true, length = 3)
-    private int estoque;
+    private int inventory;
     
     public Product(ProductDto productData) {
-        this.nome = productData.nome();
-        this.marca = productData.marca();
-        this.modelo = productData.modelo();
-        this.categoria = productData.categoria();
-        this.preco = productData.preco();
-        this.estoque = productData.estoque();
+        this.name = productData.name();
+        this.brand = productData.brand();
+        this.model = productData.model();
+        this.category = productData.category();
+        this.price = productData.price();
+        this.inventory = productData.inventory();
     }
 
     public void update(ProductDtoUpdate newProductData) {
         if (newProductData.preco() != null) {
-            this.preco = newProductData.preco();
+            this.price = newProductData.preco();
         }
 
         if (newProductData.estoque() != 0) {
-            this.estoque = newProductData.estoque();
+            this.inventory = newProductData.estoque();
         }
     }
 }
