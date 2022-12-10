@@ -13,7 +13,12 @@ export class ProductsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  create(product: Product) {
+    return this.httpClient.post<Product>(this.url, product);
+  }
+
   findAll() {
     return this.httpClient.get<Product[]>(this.url);
   }
+
 }

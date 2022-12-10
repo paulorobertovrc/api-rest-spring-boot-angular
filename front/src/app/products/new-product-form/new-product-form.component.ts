@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-new-product-form',
@@ -9,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class NewProductFormComponent {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private service: ProductsService) {
     this.form = this.formBuilder.group({
       category: [null],
       inventory: [null],
@@ -21,7 +23,7 @@ export class NewProductFormComponent {
   }
 
   onSubmit() {
-    console.log('on submit');
+    this.service.create(this.form.value).subscribe(result => console.log(result));
   }
 
   onCancel() {
