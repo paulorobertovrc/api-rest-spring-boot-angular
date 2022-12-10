@@ -2,12 +2,12 @@
     <mat-card-content>
         <mat-toolbar color="primary" class="center-title">CADASTRAR NOVO PRODUTO</mat-toolbar>
         <form [formGroup]="form">
-            <mat-form-field appearance="fill" class="full-width">
+            <mat-form-field appearance="fill" class="full-width adjust-margin">
                 <input matInput placeholder="NOME DO PRODUTO" formControlName="name">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="fit-content-width">
-                <input matInput placeholder="MARCA" formControlName="brand">
+              <input matInput placeholder="MARCA" formControlName="brand">
             </mat-form-field>
 
             <mat-form-field appearance="fill" class="fit-content-width">
@@ -27,8 +27,8 @@
             </mat-form-field>
         </form>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onSubmit()">SALVAR</button>
+    <mat-card-actions class="new-form-action-buttons">
+        <button mat-raised-button class="save-button" color="primary" (click)="onSubmit()">SALVAR</button>
         <button mat-raised-button (click)="onCancel()">CANCELAR</button>
       </mat-card-actions>
 </mat-card>
