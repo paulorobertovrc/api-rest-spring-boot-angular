@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-content>
+        <mat-toolbar color="primary" class="center-title">ALTERAR PRODUTO</mat-toolbar>
+        <form [formGroup]="form" class="min-width">
+            <mat-form-field appearance="fill" class="fit-content-width">
+                <mat-label>ESTOQUE</mat-label>
+                <input matInput formControlName="inventory">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="fit-content-width">
+                <mat-label>PREÇO</mat-label>
+                <input matInput formControlName="price">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions class="new-form-action-buttons">
+        <button mat-raised-button class="save-button" color="primary" (click)="onSubmit()">SALVAR</button>
+        <button mat-raised-button (click)="onCancel()">CANCELAR</button>
+      </mat-card-actions>
+</mat-card>
