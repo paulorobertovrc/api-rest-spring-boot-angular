@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
+import { UpdateProductFormComponent } from './update-product-form/update-product-form.component';
 
 
 
@@ -20,7 +21,8 @@ import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     ProductsComponent,
-    NewProductFormComponent
+    NewProductFormComponent,
+    UpdateProductFormComponent
   ],
   imports: [
     CommonModule,
