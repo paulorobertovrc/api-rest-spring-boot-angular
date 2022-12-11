@@ -1,7 +1,7 @@
 import Big from 'big.js';
 
 export interface Product {
-    _id: number;
+    id: number;
     category: string;
     inventory: number;
     brand: string;
