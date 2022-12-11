@@ -50,13 +50,19 @@ public class Product {
         this.inventory = productData.inventory();
     }
 
+    public Product(Long id, int inventory, BigDecimal price) {
+        this.id = id;
+        this.inventory = inventory;
+        this.price = price;
+    }
+
     public void update(ProductDtoUpdate newProductData) {
-        if (newProductData.preco() != null) {
-            this.price = newProductData.preco();
+        if (newProductData.price() != null) {
+            this.price = newProductData.price();
         }
 
-        if (newProductData.estoque() != 0) {
-            this.inventory = newProductData.estoque();
+        if (newProductData.inventory() != 0) {
+            this.inventory = newProductData.inventory();
         }
     }
 }

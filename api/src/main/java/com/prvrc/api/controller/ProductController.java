@@ -1,6 +1,7 @@
 package com.prvrc.api.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -47,11 +48,16 @@ public class ProductController {
         return productRepository.findById(id).stream().map(ProductDto::new).findFirst();
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
-    public void update(@RequestBody @Valid ProductDtoUpdate newProductData) {
-        Product p = productRepository.getReferenceById(newProductData.id());
-        p.update(newProductData);
+    public void update(@PathVariable("id") Long id, @RequestBody @Valid ProductDtoUpdate newProductData) {        
+        if (findById(id).isPresent()) {
+            ProductDto p = productRepository.findById(id).stream().map(ProductDto::new).findFirst().get();
+            Product updatedProduct = new Product(id, p.name(), p.brand(), p.model(), p.category(), newProductData.price(), newProductData.inventory());
+            productRepository.save(updatedProduct);
+        } else {
+            throw new NoSuchElementException("Produto não cadastrado!");
+        }
     }
 
     @DeleteMapping("/{id}")
