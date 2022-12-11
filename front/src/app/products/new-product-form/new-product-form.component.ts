@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -11,8 +12,13 @@ import { ProductsService } from '../services/products.service';
 export class NewProductFormComponent {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private service: ProductsService) {
-    this.form = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder,
+    private service: ProductsService,
+    private location: Location
+    ) {
+
+      this.form = this.formBuilder.group({
+      id: [null],
       category: [null],
       inventory: [null],
       brand: [null],
@@ -23,10 +29,12 @@ export class NewProductFormComponent {
   }
 
   onSubmit() {
-    this.service.create(this.form.value).subscribe(result => console.log(result));
+    this.service.create(this.form.value).subscribe();
+    alert('Produto criado com sucesso!');
+    this.onCancel();
   }
 
   onCancel() {
-    console.log('on cancel');
+    this.location.back();
   }
 }
