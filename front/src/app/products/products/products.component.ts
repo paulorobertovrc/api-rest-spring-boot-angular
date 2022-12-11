@@ -13,7 +13,7 @@ import { ProductsService } from '../services/products.service';
 export class ProductsComponent {
 
   products: Observable<Product[]>;
-  displayedColumns = ['_id', 'category', 'inventory', 'brand', 'model', 'name', 'price', 'actions'];
+  displayedColumns = ['id', 'category', 'inventory', 'brand', 'model', 'name', 'price', 'actions'];
 
   constructor(private productsService: ProductsService, private router: Router, private activeRoute: ActivatedRoute) {
     this.products = this.productsService.findAll()
@@ -27,5 +27,15 @@ export class ProductsComponent {
 
   onAdd() {
     this.router.navigate(['new'], {relativeTo: this.activeRoute});
+  }
+
+  onUpdate(product: Product) {
+    this.router.navigate(['update', product.id], {relativeTo: this.activeRoute});
+  }
+
+  onDelete(product: Product) {
+    this.productsService.delete(product.id).subscribe();
+    alert('Produto excluído com sucesso!');
+    this.products = this.productsService.findAll();
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Big from 'big.js';
+import { first } from 'rxjs';
 
 import { Product } from '../model/product';
 
@@ -21,4 +22,15 @@ export class ProductsService {
     return this.httpClient.get<Product[]>(this.url);
   }
 
+  findById(id: number) {
+    return this.httpClient.get<Product>(`${this.url}/${id}`);
+  }
+
+  update(product: Product) {
+    return this.httpClient.put<Product>(`${this.url}/${product.id}`, product);
+  }
+
+  delete(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 }

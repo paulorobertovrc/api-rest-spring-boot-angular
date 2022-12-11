@@ -2,7 +2,7 @@
 
   <caption></caption>
 
-  <ng-container matColumnDef="_id">
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
     <td mat-cell *matCellDef="let product"> {{ product.id }} </td>
   </ng-container>
@@ -43,11 +43,11 @@
     </mat-header-cell>
 
     <mat-cell class="button-edit-delete" *matCellDef="let product">
-      <button mat-icon-button color="primary" aria-label="Editar produto">
+      <button mat-icon-button color="primary" aria-label="Editar produto" (click)="onUpdate(product)">
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="primary" aria-label="Remover produto">
+      <button mat-icon-button color="primary" aria-label="Remover produto" (click)="onDelete(product)">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
