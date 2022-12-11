@@ -16,7 +16,6 @@ export class NewProductFormComponent {
     private service: ProductsService,
     private location: Location
     ) {
-
       this.form = this.formBuilder.group({
       id: [null],
       category: [null],
