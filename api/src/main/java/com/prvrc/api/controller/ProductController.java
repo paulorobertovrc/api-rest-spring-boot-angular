@@ -3,7 +3,6 @@ package com.prvrc.api.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties.Http;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
