@@ -6,3 +6,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .center-title {
     justify-content: center;
 }
+
+.min-width {
+    width: 100%;
+    min-width: 150px;
+  }

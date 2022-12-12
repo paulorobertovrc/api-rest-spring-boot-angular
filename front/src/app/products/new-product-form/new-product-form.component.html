@@ -1,28 +1,28 @@
 <mat-card>
     <mat-card-content>
-        <mat-toolbar color="primary" class="center-title">CADASTRAR NOVO PRODUTO</mat-toolbar>
+        <mat-toolbar color="primary" class="center-title min-width">CADASTRAR NOVO PRODUTO</mat-toolbar>
         <form [formGroup]="form" class="min-width">
-            <mat-form-field appearance="fill" class="full-width adjust-margin-name">
+            <mat-form-field appearance="fill" class="full-width adjust-margin-name min-width">
                 <input matInput placeholder="NOME DO PRODUTO" formControlName="name">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="fit-content-width">
+            <mat-form-field appearance="fill" class="fit-content-width min-width">
               <input matInput placeholder="MARCA" formControlName="brand">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="fit-content-width">
+            <mat-form-field appearance="fill" class="fit-content-width min-width">
                 <input matInput placeholder="MODELO" formControlName="model">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="fit-content-width">
+            <mat-form-field appearance="fill" class="fit-content-width min-width">
                 <input matInput placeholder="ESTOQUE" formControlName="inventory">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="fit-content-width">
+            <mat-form-field appearance="fill" class="fit-content-width min-width">
                 <input matInput placeholder="PREÇO" formControlName="price">
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="fit-content-width adjust-button-category">
+            <mat-form-field appearance="fill" class="fit-content-width adjust-button-category min-width">
                 <mat-label>CATEGORIA</mat-label>
                 <mat-select formControlName="category">
                     <mat-option value="eletronicos">Eletrônicos</mat-option>
@@ -33,7 +33,7 @@
         </form>
     </mat-card-content>
 
-    <mat-card-actions class="new-form-action-buttons">
+    <mat-card-actions class="new-form-action-buttons min-width">
         <button mat-raised-button class="save-button" color="primary" (click)="onSubmit()">SALVAR</button>
         <button mat-raised-button (click)="onCancel()">CANCELAR</button>
       </mat-card-actions>
