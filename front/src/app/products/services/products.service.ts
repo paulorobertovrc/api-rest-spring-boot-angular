@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Big from 'big.js';
-import { first } from 'rxjs';
 
 import { Product } from '../model/product';
 
