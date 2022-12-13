@@ -2,7 +2,6 @@ package com.prvrc.api.controller;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,20 +43,20 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Optional<ProductDto> findById(@PathVariable("id") Long id) {
-        return productRepository.findById(id).stream().map(ProductDto::new).findFirst();
+    public ProductDto findById(@PathVariable("id") Long id) {
+        return productRepository.findById(id).stream().map(ProductDto::new)
+            .findFirst()
+            .orElseThrow(NoSuchElementException::new);
     }
 
     @PutMapping("/{id}")
     @Transactional
-    public void update(@PathVariable("id") Long id, @RequestBody @Valid ProductDtoUpdate newProductData) {        
-        if (findById(id).isPresent()) {
-            ProductDto p = productRepository.findById(id).stream().map(ProductDto::new).findFirst().get();
+    public void update(@PathVariable("id") Long id, @RequestBody @Valid ProductDtoUpdate newProductData) {
+            ProductDto p = productRepository.findById(id).stream().map(ProductDto::new)
+            .findFirst()
+            .orElseThrow(NoSuchElementException::new);
             Product updatedProduct = new Product(id, p.name(), p.brand(), p.model(), p.category(), newProductData.price(), newProductData.inventory());
             productRepository.save(updatedProduct);
-        } else {
-            throw new NoSuchElementException("Produto não cadastrado!");
-        }
     }
 
     @DeleteMapping("/{id}")
