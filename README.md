@@ -14,7 +14,7 @@ O frontend foi desenvolvido com o framework Angular e os componentes do Angular 
 
 
 
-Para rodar a aplicação, é necessário acessar a pasta `/front`, executar o comando `npm run start` e acessar `http://localhost:4200/`. Também é necessário executar o método `main` a partir da classe `ApiApplication.java` para subir o servidor do backend.
+Para rodar a aplicação, é necessário acessar a pasta `/front`, executar o comando `npm run start` e acessar `http://localhost:4200/`. Também é necessário acessar a pasta `/api` e executar o comando `mvn spring-boot:run` para subir o servidor do backend, se não o fizer através de uma IDE.
 
 -----
 
@@ -32,7 +32,7 @@ Para rodar a aplicação, é necessário acessar a pasta `/front`, executar o co
 <li>Hibernate.</li>
 
 
-To run the application, you need to access the `/front` folder, execute the `npm run start` command and access `http://localhost:4200/`. It is also necessary to execute the `main` method from the `ApiApplication.java` class to start the backend server.
+To run the application, you need to access the `/front` folder, execute the `npm run start` command and access `http://localhost:4200/`. It is also necessary to access the `/api` folder and execute `mvn spring-boot:run` to start the backend server, if you're not doing it through an IDE's interface.
 
 Tela principal / Main screen
 <img width="1440" alt="Main screen" src="https://user-images.githubusercontent.com/70707151/207307528-42fcfcfb-a5d0-4717-8832-fa6220ab1671.png">
